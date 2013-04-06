@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   
   def show
   	@user = User.find(params[:id])
+    if !@user.admin
+      @project = Project.find_by_id(AssignedProject.find_by_user_id(@user.id).project_id)
+    end
   end
 
   def new

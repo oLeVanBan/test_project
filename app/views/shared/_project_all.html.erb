@@ -1,0 +1,5 @@
+<% if @project_all.any? %>
+  <ol class="microposts">
+    <%= render partial: 'shared/project_item', collection: @project_all %>
+  </ol>
+<% end %>

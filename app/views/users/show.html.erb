@@ -1,6 +1,6 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span3">
     <section>
       <h1>
         <%= gravatar_for @user %>
@@ -8,4 +8,20 @@
       </h1>
     </section>
   </aside>
+  <% if !@user.admin %>
+  <aside class="span8">
+  	<section>
+  		  <table>
+          <tr>
+            <th align="right">Project name: </th>
+            <td align="left" margin-left="10px"><%= @project.name %> </td>
+          </tr>
+          <tr>
+            <th align="right">Description: </th>
+            <td><%= @project.description %></td>
+          </tr>
+        </table>
+  	</section>
+  </aside>
+  <% end %>
 </div>

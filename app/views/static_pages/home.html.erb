@@ -1,15 +1,27 @@
 <% if signed_in? %>
   	<div class="row">
-	  <aside class="span4">
+	  <aside class="span2">
 	    <section>
 	      <h1>
 	        <%= gravatar_for @user %>
-	        <%= @user.name %>
-	        
+	        <%= @user.name %>	
 	      </h1>
 	    </section>
 	    <b>Admin: </b><%= @user.admin %>
 	  </aside>
+	  <% if current_user.admin %>
+		  <div class="span4">
+		  	<center> <b> <h3>Project Name </h3> </b></center>	 <%= render 'shared/project_all' %>
+		  </div>
+		  <div class="span4">
+		  	<center> <b> <h3>User name </h3> </b></center>	 <%= render 'users/user_list' %>
+		  </div>
+	  <% else %>
+			  <div class="span4">
+			  <center> <b> <h3>Project Name </h3> </b></center>	 <%= render 'shared/project' %>
+			  </div>
+	  <% end %>
+
 	</div>
 <% else %>
 Please sigin!
